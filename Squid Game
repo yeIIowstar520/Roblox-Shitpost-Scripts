@@ -9,9 +9,14 @@ for _, segment in pairs(segmentsFolder:GetChildren()) do
 					part.Color = Color3.fromRGB(0, 255, 0)
 				else
 					part.Color = Color3.fromRGB(255, 0, 0)
+                    for i, v in ipairs(part:GetDescendants()) do
+                        if v.Name == "TouchInterest" then
+                          v:Destroy()
+                       end
+                    end
 					
 					local fakePart = part:Clone()
-					fakePart.Position = part.Position + Vector3.new(0, 0.2, 0) 
+					fakePart.Position = part.Position + Vector3.new(0, 0.1, 0) 
 					fakePart.CanCollide = true
 					fakePart.Transparency = 1
 					fakePart.Parent = part.Parent
